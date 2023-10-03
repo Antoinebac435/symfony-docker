@@ -9,7 +9,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Article ;
 use DateTimeImmutable;
 use Doctrine\ORM\EntityManagerInterface;
-
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 
 #[Route('/article')]
 
@@ -23,6 +23,7 @@ class ArticleController extends AbstractController
         ]);
     }
 
+    #[IsGranted('ROLE_ADMIN')]
     #[Route('/cree', name: 'app_article_cree')]
     public function creeArticle (EntityManagerInterface $entityManager): Response
     {
