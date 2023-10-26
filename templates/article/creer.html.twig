@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create Article{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1 class="my-4">Create a New Article</h1>
+        {{ form_start(form, {'attr': {'class': 'form-article'}}) }}
+            {% for field in form %}
+                {% if field.vars.name != '_token' %}
+                    <div class="form-group">
+                        {{ form_label(field, null, {'label_attr': {'class': 'form-label'}}) }}
+                        {{ form_widget(field, {'attr': {'class': 'form-control'}}) }}
+                        {{ form_errors(field) }}
+                    </div>
+                {% endif %}
+            {% endfor %}
+            <button type="submit" class="btn btn-save">Save</button>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}

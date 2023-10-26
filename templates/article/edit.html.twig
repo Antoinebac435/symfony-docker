@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1 class="my-4">Edit Article: {{ article.titre }}</h1>
+        <form method="post">
+            <div class="mb-3">
+                <label for="titre" class="form-label">titre</label>
+                <input type="text" class="form-control" id="titre" name="titre" value="{{ article.titre }}">
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" name="description">{{ article.texte }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-update">Update</button>
+            <a href="{{ path('app_article_tousvoir') }}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+{% endblock %}
